@@ -1,0 +1,9 @@
+export const IMAGE_FETCHED = "IMAGE_FETCHED";
+export const USERS_FETCHED = "USERS_FETCHED";
+export const REQUEST_SEND = "REQUEST_SEND";
+export const REQUEST_ERROR = "REQUEST_ERROR";
+export const POSTS_FETCHED = "POSTS_FETCHED";
+export const COMMENTS_FETCHED = "COMMENTS_FETCHED";
+export const POST_SELECTED = "POST_SELECTED";
+export const POST_SEND = "POST_SEND";
+export const POST_UPDATE = "POST_UPDATE";
