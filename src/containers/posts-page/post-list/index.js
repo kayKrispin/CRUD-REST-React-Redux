@@ -10,13 +10,19 @@ componentDidMount(){
   this.props.fetchPosts(this.props.id)
 }
 
+componentWillReceiveProps(nextProps){
+  if( nextProps.posts.length>10 ){
+      alert('Nice mah')
+  }
+}
+
   render () {
 const { posts } = this.props;
 const { id } = this.props;
 
     return (
       <div>
-      <h1>Users Posts</h1>
+      <h1 style={{textAlign:'center',color:'#fff',marginLeft:'30px'}}>Users Posts</h1>
       <ul >
         {posts  ? (
             posts.map((post, i) => {

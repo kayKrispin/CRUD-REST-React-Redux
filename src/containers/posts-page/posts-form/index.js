@@ -4,13 +4,14 @@ import { change } from 'redux-form';
 import { connect } from 'react-redux';
 import { postChosen } from '../../../actions/posts';
 import { send } from '../../../actions/posts';
+import { compose } from 'recompose';
 
 
 const renderField = ({ input, type, label, meta: {touched,error,warning } }) =>(
   <div>
-    <label >{label}</label>
+    <label style={{marginLeft:'70px',color:'#fff'}} >{label}</label>
     <div>
-      <textarea {...input} type={type} placeholder = {label} />
+      <textarea style={{color:'#fff',background:'rgba(0,0,0,0.3)',marginLeft:'30px',border:'2px solid #fff',borderRadius:'5px'}} {...input} type={type} placeholder = {label} />
       {touched && ((error && <span>{error}</span>)||(warning && <span>{warning}</span> ))}
     </div>
   </div>
@@ -36,8 +37,8 @@ render() {
          <Field  name="title"  type="text" label={ initialValues ? "Eddit Title" : "Create Title"} component={renderField}/>
          <Field  name="body"  type="text" label={initialValues ? "Eddit Body" : "Create Body"} component={renderField}/>
          <div>
-           <button type='submit' disabled={submitting}>Submit</button>
-           <button type="submit" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+           <button style={{color:'#fff',marginLeft:'40px',background:'rgba(0,0,0,0.3)',}} type='submit' disabled={submitting}>Submit</button>
+           <button  type="submit" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
          </div>
        </form>
      ) :null
@@ -45,18 +46,15 @@ render() {
 }
 
 
-PostForm  =  reduxForm({
-  form:'forms',
-  enableReinitialize: true,
-  destroyOnUnmount : false
-})(PostForm)
 
-PostForm = connect(
-  state => ({
-    initialValues : state.postsList.postSelected,
- // pull initial values from account reducer
-  }),
-  {load:postChosen }               // bind account loading action creator
-)(PostForm)
-
-export default connect( null, { send })(PostForm);
+export default compose(
+	connect((state, ownProps) => ({
+      initialValues:state.postsList.postSelected
+  }), { send }),
+	reduxForm({
+		form: 'forms',
+		enableReinitialize: true,
+    destroyOnUnmount : false
+  
+	})
+)(PostForm);

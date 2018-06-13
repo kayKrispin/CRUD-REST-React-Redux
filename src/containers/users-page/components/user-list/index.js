@@ -11,7 +11,7 @@ class UserList extends Component {
 
   render() {
     const { error, loading, users } = this.props;
-    const ul = {listStyleType:'none',minWidth:'700px',display:'inline-flex',justifyContent:'center',alignItems:'base-line',flexWrap:'wrap'}
+    const ul = {color:"#000", listStyleType:'none',minWidth:'700px',display:'inline-flex',justifyContent:'center',alignItems:'base-line',flexWrap:'wrap'}
 
       if(error){
       return <div>Error {error.message}</div>
@@ -20,7 +20,7 @@ class UserList extends Component {
       return <div>Loading...</div>
     }
     return (
-			<div>
+			<div className='container'>
 				<div className='row'>
         <ul style={ul }>
 					{users  ? (

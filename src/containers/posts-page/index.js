@@ -13,6 +13,7 @@ state={
   checked:false
 }
 
+
 handleChange = () =>{
   this.props.postChosen()
   this.setState(prevState=>({
@@ -23,9 +24,20 @@ handleChange = () =>{
 render () {
 const { id } = this.props.match.params;
 
+const btnStyle={
+color:'#fff',
+marginLeft:'40px',
+width:'130px',
+fontWeight:'lighter',
+height:'50px',
+border:"2px solid #fff",
+borderRadius:'10px',
+background: 'rgba(0, 0, 0, 0.3)'
+}
+
   return (
       <div>
-        <button onClick={this.handleChange} >Create New Post</button>
+        <button style={btnStyle} onClick={this.handleChange} >Create New Post</button>
         {this.state.checked ? (<PostForm />):null}
         <PostList id={id} />
       </div>

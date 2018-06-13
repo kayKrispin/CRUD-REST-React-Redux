@@ -35,9 +35,9 @@ const number = value => value && isNaN(Number(value)) ? 'Must be number' :undefi
 
 const renderField = ({ input, type, label, meta: {touched,error,warning } }) =>(
   <div>
-    <label >{label}</label>
+    <label className='h-1' >{label}</label>
     <div>
-      <input {...input} type={type} placeholder = {label} />
+      <input className='inp-1' {...input} type={type} placeholder = {label} />
       {touched && ((error && <span>{error}</span>)||(warning && <span>{warning}</span> ))}
     </div>
   </div>
@@ -46,7 +46,7 @@ const renderField = ({ input, type, label, meta: {touched,error,warning } }) =>(
 const renderMembers = ({ fields, meta: { touched,error,submitFailed} }) =>(
 <ul>
   <li>
-    <button type="button" onClick={()=>fields.push({})}>Add nice Members</button>
+    <button  className='btn-1' type="button" onClick={()=>fields.push({})}>Add nice Members</button>
     {(touched || submitFailed) && error && <span>{error}</span>}
   </li>
   {fields.map((member,index)=>(
@@ -106,14 +106,18 @@ const renderHobbies = ({ fields, meta: { error } }) => (
 const Forms  = props => {
     const { handleSubmit, reset, submitting, pristine } = props;
       return(
+
        <form >
-         <Field  name="clubName" type="text" label="Club Name" component={renderField}/>
+       <div className="form-group">
+         <Field   name="clubName" type="text" label="Club Name" component={renderField}/>
          <FieldArray name='members' component={renderMembers} />
+         </div>
          <div>
-           <button type="submit" disabled={submitting}>Submit</button>
-           <button type="submit" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+           <button className='btn-1' type="submit" disabled={submitting}>Submit</button>
+           <button className='btn-1' type="submit" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
          </div>
        </form>
+
      )
    }
 

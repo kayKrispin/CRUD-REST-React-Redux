@@ -11,8 +11,7 @@ class FormsPage extends Component {
 
   render() {
     return (
-    <div style={{padding:'15px'}}>
-      <h2> Fields of Arrays</h2>
+    <div >
       <Forms onSubmit={this.submit} />
       <Values form="fieldArrays" />
     </div>

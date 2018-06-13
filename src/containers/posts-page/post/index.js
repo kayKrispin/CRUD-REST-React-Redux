@@ -34,8 +34,8 @@ render() {
 
   return (
       <div>
-          <button onClick={()=>{ this.handleChoose(this.props.post)}}><strong></strong>Edit Post number : {id}</button>
-            <li >
+          <button style={{color:'#fff',background:'rgba(0,0,0,0.3)',border:'3px solid #000',borderRadius:"4px"}} onClick={()=>{ this.handleChoose(this.props.post)}}><strong></strong>Edit Post number : {id}</button>
+            <li style={{color:'#fff'}} >
              {id}. <strong>Title:</strong>  {title}<br />
              <strong>Body:</strong>  {body}
             { showPostForm   ? (<PostForm onSubmit={this.save} />) : null }

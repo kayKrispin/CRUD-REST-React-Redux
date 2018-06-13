@@ -7,7 +7,7 @@ class SearchResult extends Component {
 console.log(img)
 
     return (
-      <img src={ img } alt=""/>
+      <div className='row'><div className='cold-md-3'><img src={ img } alt=""/></div></div>
     );
   }
 

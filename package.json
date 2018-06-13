@@ -3,25 +3,50 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "autoscroll-react": "^3.2.0",
     "axios": "^0.18.0",
+    "bootstrap": "^4.1.1",
+    "chance": "^1.0.16",
+    "jquery": "^3.3.1",
     "material-ui": "^0.20.1",
+    "moment": "^2.22.1",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
+    "react-cropper": "^1.0.1",
     "react-dom": "^16.3.2",
+    "react-image-crop": "^4.0.1",
+    "react-image-crop-component": "^0.2.4",
+    "react-image-cropper": "^1.3.0",
     "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
+    "recompose": "^0.27.1",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.3.0",
     "redux-form-website-template": "0.0.122",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "socket.io": "^1.3.6",
+    "socket.io-client": "^1.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "node src/server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "build-css": "node-sass --include-path scss  public/scss public/css",
+    "scss": "node-sass scss/styles.scss css/main.css",
+    "sass": "node-sass  public/scss/styles.scss public/css/main.css ",
+    "watch": "node-sass   public/scss/styles.scss -o public/css/main.css",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.17.5",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
   }
 }

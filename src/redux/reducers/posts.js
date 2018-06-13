@@ -19,7 +19,7 @@ export default function postsList( state = defaultState, action = {} ){
       case POSTS_FETCHED:
           return Object.assign({},state, { loading:false, posts:action.posts});
       case POST_SEND:
-          return Object.assign({}, state, { loading:false, posts: [action.post,...state.posts] });
+            return  Object.assign({}, state, { loading:false, posts: [action.post,...state.posts]});
       case POST_UPDATE:
           const newPostsState = state.posts.map(post=> post.id === action.post.id  ? action.post : post )
           return Object.assign({},state, { loading:false, posts:newPostsState, post:action.post});
